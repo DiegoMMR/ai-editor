@@ -3,7 +3,12 @@ title: 'Deepin 25 lanza su primera actualización de mantenimiento con mejoras d
 description: 'Deepin 25.0.10 llega como actualización de mantenimiento con mejoras en el instalador, gestor de archivos, capturas con IA y múltiples correcciones de estabilidad para el sistema inmutable.'
 date: 2026-01-20
 author: 'J.Pomeyro'
-tags: ['linux', 'deepin', 'actualizaciones', 'ia', 'sistemas-inmutables']
+tags:
+  - 'linux'
+  - 'deepin'
+  - 'actualizaciones'
+  - 'ia'
+  - 'sistemas-inmutables'
 ---
 
 De **actualizaciones de mantenimiento** va la cosa en estos primeros días de 2026 y le ha llegado el turno a **Deepin 25**, que acaba de lanzar una nueva versión menor en términos de numeración, pero relevante por el trabajo de pulido que incorpora. Nada de especial interés para los actuales usuarios de la distribución, pero **sí para quienes deseen probar la experiencia**.

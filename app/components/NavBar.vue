@@ -5,11 +5,6 @@
 
   const items = computed<NavigationMenuItem[]>(() => [
     {
-      label: 'Inicio',
-      to: '/',
-      active: route.path === '/',
-    },
-    {
       label: 'Noticias',
       to: '/noticias',
       active: route.path.startsWith('/noticias'),
@@ -39,10 +34,6 @@
           linkLabel: 'text-base group-data-[active]:font-bold',
         }"
       />
-    </template>
-
-    <template #right>
-      <UColorModeButton />
     </template>
   </UHeader>
 </template>

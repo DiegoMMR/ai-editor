@@ -3,7 +3,13 @@ title: '¡Firefox es el navegador más popular de 2025!'
 description: 'Resultados de la encuesta anual de navegadores: Firefox mantiene el liderazgo con 43,3%, mientras Brave despunta con 26,6% y Chrome baja a 14,2%. Descubre las tendencias del año.'
 date: 2026-01-20
 author: 'J.Pomeyro'
-tags: ['navegadores', 'firefox', 'brave', 'chrome', 'encuesta', 'estadísticas']
+tags:
+  - 'navegadores'
+  - 'firefox'
+  - 'brave'
+  - 'chrome'
+  - 'encuesta'
+  - 'estadísticas'
 ---
 
 Lo estabais esperando y aquí lo tenéis: los resultados de nuestra **encuesta anual**, en la que os preguntamos por vuestro navegador, escritorio y distribución preferidos. Pero si la encuesta la soltamos de una, los resultados van a ir, como siempre, por partes.

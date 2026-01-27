@@ -12,7 +12,7 @@
     <!-- Hero Section -->
     <section class="py-20 text-center">
       <UBadge color="primary" variant="subtle" size="lg" class="mb-4"> Noticias de Linux </UBadge>
-      <h1 class="text-5xl font-black mb-6 bg-gradient-to-r from-primary-500 to-blue-500 bg-clip-text text-transparent">
+      <h1 class="text-5xl font-black mb-6 bg-linear-to-r from-primary-500 to-blue-500 bg-clip-text text-transparent">
         Tu fuente de noticias sobre Linux
       </h1>
       <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -20,7 +20,6 @@
       </p>
       <div class="flex gap-4 justify-center flex-wrap">
         <UButton to="/noticias" size="xl" icon="i-heroicons-newspaper"> Ver todas las noticias </UButton>
-        <UButton to="/sobre" size="xl" color="neutral" variant="outline" icon="i-heroicons-information-circle"> Sobre nosotros </UButton>
       </div>
     </section>
 

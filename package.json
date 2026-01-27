@@ -6,16 +6,23 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "ai:generate-posts": "node scripts/generate-posts.js"
   },
   "dependencies": {
-    "@nuxt/content": "^3.11.0",
-    "@nuxt/eslint": "1.12.1",
-    "@nuxt/ui": "4.4.0",
-    "better-sqlite3": "^12.6.2",
-    "eslint": "^9.39.2",
-    "nuxt": "^4.2.2",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "@nuxt/content": "3.11.0",
+    "@nuxt/ui": "4.3.0",
+    "better-sqlite3": "12.6.2",
+    "eslint": "9.39.2",
+    "nuxt": "4.2.2",
+    "tailwindcss": "4.1.18"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
+    "@types/node": "^25.0.10",
+    "dotenv": "17.2.3",
+    "fast-glob": "3.3.3",
+    "gray-matter": "4.0.3",
+    "node-fetch": "3.3.2"
   }
 }
