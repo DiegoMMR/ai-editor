@@ -70,6 +70,23 @@
           <ContentRenderer :value="story" />
         </div>
 
+        <!-- TL;DR -->
+        <div v-if="story.tldr">
+          <UCard class="bg-gray-50 dark:bg-gray-800">
+            <template #header>
+              <h2 class="text-2xl font-black mb-2">TL;DR</h2>
+            </template>
+            <div class="text-gray-700 dark:text-gray-300 px-4">
+              <ul v-if="Array.isArray(story.tldr)" class="list-disc list-outside space-y-2">
+                <li v-for="(item, index) in story.tldr" :key="index">
+                  {{ item.replace(/^[*\s]+/, '') }}
+                </li>
+              </ul>
+              <p v-else>{{ story.tldr }}</p>
+            </div>
+          </UCard>
+        </div>
+
         <!-- Related Articles -->
         <section v-if="relatedNews?.length" class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <h2 class="text-2xl font-black mb-6">Noticias Relacionadas</h2>

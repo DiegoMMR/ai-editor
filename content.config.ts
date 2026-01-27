@@ -13,6 +13,7 @@ export default defineContentConfig({
         author: z.string().optional(),
         date: z.coerce.date(),
         tags: z.array(z.string()).optional(),
+        tldr: z.array(z.string()).optional(),
       }),
     }),
   },

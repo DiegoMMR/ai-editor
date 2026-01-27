@@ -7,6 +7,7 @@ import fetch from 'node-fetch';
 
 const DRAFTS_DIR = './content/borradores';
 const POSTS_DIR = './content/IA-editados';
+const CHANGES_LOG = './scripts/changes.log';
 
 // --------- IA helpers ---------
 
@@ -32,25 +33,39 @@ async function correctText(text) {
   const prompt = `
 Corrige errores ortográficos y gramaticales del siguiente texto.
 No cambies el significado ni el estilo.
+agrega al final de la respuesta un registro de los cambios realizados en formato de lista.
+al texto corregido NO le agregues textos adicionales para introducir que es el texto corregido.
+
+FORMATO DE RESPUESTA:
+<texto corregido>
+
+Registro de cambios:
+- Cambio 1
+- Cambio 2
+- ... 
 
 Texto:
 ${text}
 `;
-  return callAI(prompt);
+  return await callAI(prompt);
 }
 
 async function generateTLDR(text) {
   const prompt = `
 Genera un TL;DR del siguiente texto.
 Máximo 3 puntos.
-Formato en lista.
 Lenguaje claro y conciso.
+
+FORMATO DE RESPUESTA:
+{
+  "tldr": ["punto1", "punto2", "punto3"]
+}
 
 Texto:
 ${text}
 `;
   const result = await callAI(prompt);
-  return result.split('\n').filter(Boolean);
+  return JSON.parse(result).tldr;
 }
 
 async function generateTags(text) {
@@ -77,34 +92,38 @@ ${text}
   return JSON.parse(result).tags;
 }
 
-// --------- Main logic ---------
-
 async function processDraft(filePath) {
   const raw = await fs.readFile(filePath, 'utf-8');
   const { data, content } = matter(raw);
 
   if (!content || content.length < 200) {
-    console.log(`⏭️  Saltado (contenido muy corto): ${filePath}`);
+    console.log(`Saltado (contenido muy corto): ${filePath}`);
     return;
   }
 
-  console.log(`✏️  Procesando: ${filePath}`);
+  console.log(`Procesando: ${filePath}`);
 
-  const correctedContent = await correctText(content);
-  const tldr = await generateTLDR(correctedContent);
-  const tags = await generateTags(correctedContent);
+  const corrected_text = await correctText(content);
+  const tldr = await generateTLDR(corrected_text);
+  const tags = await generateTags(corrected_text);
 
-  const finalMarkdown = matter.stringify(correctedContent, {
-    ...data,
-    tldr,
-    tags,
-  });
+  const finalMarkdown = matter.stringify(
+    corrected_text,
+    {
+      ...data,
+      tldr,
+      tags,
+    },
+    {
+      lineWidth: -1,
+    }
+  );
 
   const fileName = path.basename(filePath);
   const outputPath = path.join(POSTS_DIR, fileName);
 
   await fs.writeFile(outputPath, finalMarkdown);
-  console.log(`✅ Publicado: ${outputPath}`);
+  console.log(`Publicado: ${outputPath}`);
 }
 
 async function run() {
@@ -117,7 +136,7 @@ async function run() {
     await processDraft(file);
   }
 
-  console.log('🎉 Proceso finalizado');
+  console.log('Proceso finalizado');
 }
 
 run();
