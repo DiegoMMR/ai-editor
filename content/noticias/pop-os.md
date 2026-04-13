@@ -19,8 +19,6 @@ tags:
   - productividad
 ---
 
-Aquí te dejo el texto corregido:
-
 Pop OS es una distribución de Linux desarrollada por System76 que ha ganado mucha popularidad en los últimos años, sobre todo entre desarrolladores y usuarios que buscan un sistema operativo enfocado en la productividad y el rendimiento.
 
 Uno de los cambios más importantes que está teniendo lugar en Pop OS es el desarrollo de su propio entorno de escritorio llamado Cosmic. Anteriormente, Pop OS utilizaba GNOME con algunas modificaciones, pero el equipo decidió crear Cosmic para tener un mayor control sobre la experiencia del usuario.
